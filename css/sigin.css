@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background: url('sign.jpg') no-repeat fixed;
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+}
+
+.navbar {
+    padding: .3rem;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+}
+
+.main-frame-sign {
+    margin: 0 auto;
+    margin-top: 7px;
+    padding: 0;
+    /* background-color: lightgray; */
+    padding: 18px 18px;
+    opacity: .7;
+    border-radius: 10px;
+}
+
+hr {
+    border-top: 1px solid #000000;
+}
+
+.or-session {
+    margin-top: 25px;
+}
+
+.my-new-2 {
+    margin-bottom: 25px;
+}
+
+.my-new-2 a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+}
+
+a:hover {
+    color: darkblue;
+    text-decoration: none;
+}
+
+.form-group label {
+    color: black;
+}

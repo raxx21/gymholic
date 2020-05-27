@@ -1,0 +1,63 @@
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
+    color: #222;
+}
+
+.navbar {
+    padding: .3rem;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+}
+
+.main-frame-forget {
+    background-color: aquamarine;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.my-img img {
+    height: 100px;
+    width: 100px;
+    margin-top: 60px;
+    margin-bottom: 25px;
+}
+
+.main-line {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-top: 25px;
+}
+
+hr {
+    border-top: 1px solid #000000;
+}
+
+.or-session {
+    margin-top: 25px;
+}
+
+.my-new-1 {
+    margin-bottom: 25px;
+}
+
+.my-new-1 a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+}
+
+a:hover {
+    color: darkblue;
+    text-decoration: none;
+}
