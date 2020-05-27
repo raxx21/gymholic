@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['Firstname'])){
+
 $server = "localhost";
 $username = "root";
 $password = "";
@@ -9,23 +9,8 @@ $con = mysqli_connect($server,$username,$password);
 if(!$con){
     die("connection to this db failed due to". mysqli_connect_error());
 }
+    echo"Success";
 
-// echo "Success connection to the db"
-
-$FirstName = $_POST["Firstname"];
-$LastName = $_POST["lastname"];
-$Email = $_POST["email"];
-$Password = $_POST["password"];
-
-$sql = "INSERT INTO `try1`.`part1` (`FirstName`, `LastName`, `Email`, `Password`, `Date`) VALUES ('$FirstName', '$LastName', '$Email', '$Password', CURRENT_DATE());";
-
-if($con -> query($sql) == true){
-}
-else{
-echo "Error $sql <br> $con->error";
-}
-$con->close();
-}
 ?>
 
 <!DOCTYPE html>
