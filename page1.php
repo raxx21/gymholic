@@ -1,4 +1,24 @@
+<?php
+ $server = "localhost";
+ $username = "root";
+ $password = "";
+
+ $con = mysqli_connect($server,$username,$password);
+ if(!$con){
+     die("db is not connected ". mysqli_connect_error());
+ }
+
+$log_ID = $_POST['log_ID'];
+$log_PASS = $_POST['log_PASS'];
+
+$sql = ""
+
+
+?>
+
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>

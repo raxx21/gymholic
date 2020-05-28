@@ -1,17 +1,3 @@
-<?php
-
-$server = "localhost";
-$username = "root";
-$password = "";
-
-$con = mysqli_connect($server,$username,$password);
-
-if(!$con){
-    die("connection to this db failed due to". mysqli_connect_error());
-}
-    echo"Success";
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,10 +54,10 @@ if(!$con){
                 <h2>Sign In</h2>
             </div>
             <div>
-                <form action="sigin.php" method="POST" >
+                <form action="login.php" method="POST">
                     <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" name="Firstname">
+                        <input type="text" class="form-control" name="firstname">
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
