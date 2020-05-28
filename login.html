@@ -1,29 +1,4 @@
-<?php
-if (isset($_POST['firstname'])) {
-    $server = "localhost";
-    $username = "root";
-    $password = "";
 
-    $con = mysqli_connect($server, $username, $password);
-
-    if (!$con) {
-        die("connection to this db failed due to". mysqli_connect_error());
-    }
-
-    $Firstname = $_POST['firstname'];
-    $Lastname = $_POST['lastname'];
-    $Email =$_POST['email'];
-    $Password =$_POST['password'];
-
-    $sql = "INSERT INTO `try1`.`test1`(`FirstName`, `LastName`, `Email`, `Password`, `Date`) VALUES ('$Firstname','$Lastname','$Email','$Password', current_timestamp());";
-
-    if ($con -> query($sql) == true) {
-    } else {
-        echo "error $sql <br> $con->error";
-    }
-    $con->close();
-}
-?>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -95,7 +70,7 @@ if (isset($_POST['firstname'])) {
                         <img src="img/face.png" alt=""><br>
                     </div>
                     <div>
-                        <form>
+                        <form action="check.php" method="POST">
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="log_ID" id="">
@@ -104,9 +79,9 @@ if (isset($_POST['firstname'])) {
                                 <label>Password</label>
                                 <input type="password" class="form-control" name="log_PASS" id="">
                             </div>
-                            <button type="button" class="btn btn-primary btn-block but-1">Login</button>
+                            <button type="submit" name="submit" class="btn btn-primary btn-block but-1">Login</button>
                             <div class="forget-button">
-                                <a href="Forget.html"><button type="button" class="btn btn-danger btn-block but-2">Forget Password</button></a>
+                                <a href="Forget.html"><button  class="btn btn-danger btn-block but-2">Forget Password</button></a>
                             </div>
                         </form>
                     </div>
