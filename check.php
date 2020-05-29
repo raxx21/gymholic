@@ -1,9 +1,8 @@
 
 <?php
+$error = false;
 if (isset($_POST['submit'])) {
-    $server = "localhost";
-    $username = "root";
-    $password = "";
+    
 
 
     $con = mysqli_connect($server, $username, $password,"try1");
@@ -17,9 +16,9 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($con,$sql);
     $row = mysqli_num_rows($result);
     if ($row == true) {
-       include 'page1.php';
+       include 'page1.html';
     } else {
-        include 'page2.html';
+       
     }
 }
 ?>

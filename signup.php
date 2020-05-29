@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +53,7 @@
                 <h2>Sign In</h2>
             </div>
             <div>
-                <form action="check.php" method="POST">
+                <form action="includes/signup.inc.php" method="POST">
                     <div class="form-group">
                         <label>First Name</label>
                         <input type="text" class="form-control" name="firstname">
@@ -65,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control" name="mail">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
@@ -73,9 +72,9 @@
                     </div>
                     <div class="form-group">
                         <label>Re-Password</label>
-                        <input type="password" class="form-control" name="repassword">
+                        <input type="password" class="form-control" name="password-rep">
                     </div>
-                    <Button class="btn btn-primary btn-block">Sign In</Button>
+                    <Button name="signup-submit" class="btn btn-primary btn-block">Sign In</Button>
                     <div class="row or-session">
                         <div class="col-lg-5">
                             <hr>
