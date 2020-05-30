@@ -1,12 +1,16 @@
 <?php
 if(isset($_POST['signup-submit'])){
-    require '../condb.php';
+
+    // Connection file
+    require 'condb.php';
 
     $Firstname = $_POST['firstname'];
     $Lastname = $_POST['lastname'];
     $Email =$_POST['mail'];
     $Password =$_POST['password'];
     $Passwordrep = $_POST['password-rep'];
+
+    // Types of error
    
     if(empty($Firstname) || empty($Lastname) || empty($Email) || empty($Password)){
         header("Location: ../signup.php?error=emptyfields&firstname=".$Firstname."&lastname=".$Lastname."&mail".$Email );
@@ -28,12 +32,13 @@ if(isset($_POST['signup-submit'])){
         header("Location: ../signup.php?error=invalidLastname&firstname=".$Firstname."&mail".$Email);
         exit();
     }
-    elseif($Password == $Passwordrep){
+    elseif($Password !== $Passwordrep){
         header("Location: ../signup.php?error=passwordcheck&firstname=".$Firstname."&lastname=".$Lastname."&mail".$Email);
         exit();
     }
+    // Check Email
     else{
-        $sql = "SELECT try1 FROM test1 WHERE Email=?";
+        $sql = "SELECT * FROM test1 WHERE Email=?";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt,$sql)){
             header("Location: ../signup.php?error=sqlerror");
@@ -49,10 +54,11 @@ if(isset($_POST['signup-submit'])){
                 exit();
             }
             else{
+                // store data in db
                 $sql = "INSERT INTO test1 (FirstName, Lastname, Email, Password, Date) VALUES (?,?,?,?,current_timestamp())";
                 $stmt = mysqli_stmt_init($con);
-                if ($resultcheck > 0) {
-                    header("Location: ../signup.php?error=mailalreadytaken&firstname=".$Firstname."&lastname=".$Lastname);
+                if (!mysqli_stmt_prepare($stmt,$sql)) {
+                    header("Location: ../signup.php?error=sqlerror");
                     exit();
                 }
                 else{

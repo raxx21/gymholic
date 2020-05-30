@@ -71,7 +71,7 @@
                     <img src="img/face.png" alt=""><br>
                 </div>
                 <div>
-                    <form action="login.php" method="POST">
+                    <form action="includes/login.inc.php" method="POST">
                         <div class="form-group">
                             <label>Email</label>
                             <input type="email" class="form-control" name="log_ID" id="">
@@ -80,15 +80,8 @@
                             <label>Password</label>
                             <input type="password" class="form-control" name="log_PASS" id="">
                         </div>
-                        <button type="submit" name="submit" class="btn btn-primary btn-block but-1">Login</button>
-                        <?php
+                        <button type="submit" name="login-submit" class="btn btn-primary btn-block but-1">Login</button>
                     
-                            if($error == true){
-                                echo "<div>";
-                                echo "<h3>The Username or Password enter is wrong </h3>";
-                                echo "</div>";
-                            }
-                        ?>
                         <div class="forget-button">
                             <a href="Forget.html"><button  class="btn btn-danger btn-block but-2">Forget Password</button></a>
                         </div>

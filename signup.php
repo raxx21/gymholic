@@ -30,7 +30,7 @@
                     <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="login.php">Login</a>
                 </li>
 
                 <li class="nav-item active">
