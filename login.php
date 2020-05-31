@@ -52,7 +52,7 @@
                     <a class="nav-link" href="#">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sigin.html">Sign up</a>
+                    <a class="nav-link" href="signup.php">Sign up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
@@ -70,6 +70,22 @@
                 <div class="col-lg-12 user-img text-center">
                     <img src="img/face.png" alt=""><br>
                 </div>
+                <?php
+                    if(isset($_GET['error'])){
+                        if($_GET['error'] == "emptyfields"){
+                            echo "<p class='error text-center'>Fill in the blocks properly</p>";
+                        }
+                        elseif($_GET['error'] == "nouser"){
+                            echo "<p class='error text-center'>No user with this Email</p>";
+                        }
+                        elseif($_GET['error'] == "wrongpassword"){
+                        echo "<p class='error text-center'>Your Password is Wrong</p>";
+                        }
+                        elseif($_GET['error'] == "sqlerror"){
+                            echo "<p class='error text-center'>Server is not responding</p>";
+                        }
+                    }
+                ?>
                 <div>
                     <form action="includes/login.inc.php" method="POST">
                         <div class="form-group">

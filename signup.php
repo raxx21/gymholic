@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/7108b832d3.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/sigin.css">
+    <link rel="stylesheet" href="css/signup.css">
     <script type="text/javascript" src="js/sigin.js"></script>
 </head>
 
@@ -52,6 +52,37 @@
             <div class="col-12  text-center">
                 <h2>Sign In</h2>
             </div>
+            <?php
+            if(isset($_GET['error'])){
+                if($_GET['error'] == "emptyfields"){
+                    echo "<p class='error text-center'>Fill in the blocks properly</p>";
+                }
+                elseif($_GET['error'] == "invalidmail"){
+                    echo "<p class='error text-center'>Invalid Email</p>";
+                }
+                elseif($_GET['error'] == "invalidfirstname"){
+                    echo "<p class='error text-center'>Invalid FirstName</p>";
+                }
+                elseif($_GET['error'] == "invalidLastname"){
+                    echo "<p class='error text-center'>Invalid LastName</p>";
+                }
+                elseif($_GET['error'] == "passwordcheck"){
+                    echo "<p class='error text-center'>Password is Mismatch</p>";
+                }
+                elseif($_GET['error'] == "mailalreadytaken"){
+                    echo "<p class='error text-center'>Email already exists</p>";
+                }
+                elseif($_GET['error'] == "sqlerror"){
+                    echo "<p class='error text-center'>Server is not responding</p>";
+                }
+            }
+            elseif(isset($_GET['signup'])){
+                if($_GET['signup'] == "success"){
+                    echo "<p class='success text-center'>Successfully Sign Up</p>";
+                }
+            }
+            ?>
+
             <div>
                 <form action="includes/signup.inc.php" method="POST">
                     <div class="form-group">

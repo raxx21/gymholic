@@ -56,3 +56,11 @@ a:hover {
 .form-group label {
     color: black;
 }
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}

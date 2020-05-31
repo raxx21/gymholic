@@ -25,7 +25,7 @@ if(isset($_POST['signup-submit'])){
         exit();
     }
     elseif(!preg_match("/^[a-zA-Z0-9]*$/",$Firstname)){
-        header("Location: ../signup.php?error=invalid&lastname=".$Lastname."&mail".$Email);
+        header("Location: ../signup.php?error=invalidfirstname&lastname=".$Lastname."&mail".$Email);
         exit();
     }
     elseif(!preg_match("/^[a-zA-Z0-9]*$/",$Lastname)){
