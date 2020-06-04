@@ -61,3 +61,11 @@ a:hover {
     color: darkblue;
     text-decoration: none;
 }
+
+.main-frame-forget-2 {
+    background-color: black;
+    color: white;
+    margin-top: 40px;
+    border-radius: 10px;
+    padding: 20px;
+}

@@ -22,52 +22,43 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="login.html">Back to Login<span class="sr-only"></span></a>
-                </li>
-            </ul>
-        </div>
     </nav>
 
-    <!-- Forget Form -->
-    <div class="container-fluid row ">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4 main-frame-forget">
-            <div class="col-lg-12 my-img text-center">
-                <img src="img/forget.png" alt="">
-            </div>
-            <div class="col-lg-12 text-center main-line">
-                <h1>Trouble Logging In?</h1>
-            </div>
+    <?PHP
+        $selector = $_GET["selector"];
+        $validator = $_GET["validator"];
 
-            <div class="form-group col-lg-12">
-                <p>
-                    Enter your username or email and we'll send you a link to get back into your account.
-                </p>
-                <input type="email" class="form-control" name="email" id="" placeholder="Email">
-                <button type="button" class="btn btn-dark btn-block">Send Login Link</button>
-            </div>
-            <div class="row or-session">
-                <div class="col-lg-5">
-                    <hr>
-                </div>
-                <div class="col-lg-2 text-center">
-                    <h6>OR</h6>
-                </div>
-                <div class="col-lg-5">
-                    <hr>
-                </div>
-            </div>
-            <div class="text-center my-new-1">
-                <a href="#">Create-New-Account.</a>
-            </div>
-        </div>
-        <div class="col-lg-4"></div>
-    </div>
+        if(empty($selector) || empty($validator)){
+            header("Location: ../forget.php?notvalid=token");
+            exit()
+        }
+        else{
+            if(ctype_xdigit($selector) !== false || ctype_xdigit($validator) !== false){
+                ?>
+                <form action="inlcudes/reset-password.inc.php" method="POST">
+                        <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4 container form-group main-frame-forget-2">
+                                <input type="hidden" name="selector" value="<?php echo $selector; ?>">
+                                <input type="hidden" name="validator" value="<?php echo $validator; ?>">
+                                <label for="">New Password</label>
+                                <input type="password" name="password" class="form-control">
+                                <label for="">Re-Password</label>
+                                <input type="password" name="re-password" class="form-control">
+                                <button type="submit" name="reset-password-submit"class="btn btn-primary">Submit</button>
+                            </div>
+                            <div class="col-lg-4"></div>
+                        </div>
+                </form>
+                <?php
+
+            }
+        }
+    ?>
+
+    <!-- Form content -->
+    
 
 
 </body>
-
 </html>

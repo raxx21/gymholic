@@ -46,7 +46,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Login</a>
@@ -86,6 +86,13 @@
                         }
                     }
                 ?>
+                <?php
+                    if(isset($_GET["newpwd"])){
+                        if($_GET["newpwd"] == "updated"){
+                            echo "<p class='error text-center'>Your Password is updated</p>";
+                        }
+                    }
+                ?>
                 <div>
                     <form action="includes/login.inc.php" method="POST">
                         <div class="form-group">
@@ -97,10 +104,12 @@
                             <input type="password" class="form-control" name="log_PASS" id="">
                         </div>
                         <button type="submit" name="login-submit" class="btn btn-primary btn-block but-1">Login</button>
-                    
+                        </form>
+                    <form action="forget.php" method="POST">
                         <div class="forget-button">
-                            <a href="Forget.html"><button  class="btn btn-danger btn-block but-2">Forget Password</button></a>
+                        <button class="btn btn-danger btn-block but-2">Forget Password</button>
                         </div>
+                    
                     </form>
                 </div>
             </div>
