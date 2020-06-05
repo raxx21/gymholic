@@ -54,5 +54,5 @@ if(isset($_POST['forget-password-submit'])){
     header("Location: ../forget.php?reset=success");
 }
 else{
-    header("Location: ../home.php")
+    header("Location: ../home.php");
 }

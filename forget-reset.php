@@ -30,7 +30,7 @@
 
         if(empty($selector) || empty($validator)){
             header("Location: ../forget.php?notvalid=token");
-            exit()
+            exit();
         }
         else{
             if(ctype_xdigit($selector) !== false || ctype_xdigit($validator) !== false){
@@ -55,9 +55,6 @@
             }
         }
     ?>
-
-    <!-- Form content -->
-    
 
 
 </body>
