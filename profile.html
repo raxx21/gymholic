@@ -24,8 +24,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="home.htm">Home <span class="sr-only"></span></a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="page2.html">Back <span class="sr-only"></span></a>
                 </li>
 
             </ul>
@@ -33,47 +33,33 @@
         </div>
     </nav>
 
+    <!-- Profile Form -->
 
-    <!-- form content -->
-
-    <form action="page2.html">
-        <div class="container ">
-            <div class="row ">
+    <form action="">
+        <div class="container">
+            <div class="row">
                 <div class="col-lg-3"></div>
-                <div class="col-lg-6 main-frame-forget-2">
-                    <div class="form-group">
-                        <label for="">Age</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Height</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Weight</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="birthday">Birthday:</label>
-                        <input type="date" id="birthday" name="birthday" class="form-control">
-                    </div>
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                <div class="col-lg-6 form-group main-frame-forget-3">
+                    <div class="inner">
+                        <div class=" col-lg-12 user-img text-center">
+                            <img src="img/face.png" alt="">
                         </div>
-                        <select class="custom-select col-lg-3" id="inputGroupSelect01">
-                  <option selected>Choose...</option>
-                  <option value="1">Female</option>
-                  <option value="2">Male</option>
-                </select>
-                    </div>
-                    <div>
-                        <button class="btn btn-primary">Continue --></button>
+                        <div class="col-lg-12">
+                            <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                            <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+                            <input type="email" name="email" class="form-control" placeholder="Email">
+                            <input type="phone" name="phone" class="form-control" placeholder="Phone No.">
+                            <small class="form-text form-mute">If you want to Restart your workout routine then click the Reset Button below.</small>
+                            <button class="btn btn-danger">Reset</button>
+                            <small class="form-text form-mute">If you want to edit your Profile click the edit button below.</small>
+                            <button class="btn btn-primary">Edit</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3"></div>
             </div>
         </div>
+
     </form>
 
 </body>
