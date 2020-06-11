@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +36,23 @@
 
         </div>
     </nav>
+    <!-- php code for name and info -->
+
+                            <?php
+                            require 'includes/condb.php';
+                            $email =  $_SESSION['useremail'];
+                            $sql = "SELECT * FROM test1 WHERE Email= ?";
+                            $stmt= mysqli_stmt_init($con);
+                            if(!mysqli_stmt_prepare($stmt,$sql)){
+                                echo 'mysqlerror';
+                            }
+                            else{
+                                mysqli_stmt_bind_param($stmt , "s", $email);
+                                mysqli_stmt_execute($stmt);
+                                $result = mysqli_stmt_get_result($stmt);
+                                if($row = mysqli_fetch_assoc($result)){
+
+                           ?>
 
     <!-- Profile Form -->
 
@@ -42,12 +63,13 @@
                 <div class="col-lg-6 form-group main-frame-forget-3">
                     <div class="inner">
                         <div class=" col-lg-12 user-img text-center">
-                            <img src="img/face.png" alt="">
+                            <input type="file" id="photo-upload" name="photo">
+                            <label for="photo-upload"><img  src="img/face.png" alt=""></label>
                         </div>
                         <div class="col-lg-12">
-                            <input type="text" name="firstname" class="form-control" placeholder="First Name">
-                            <input type="text" name="lastname" class="form-control" placeholder="Last Name">
-                            <input type="email" name="email" class="form-control" placeholder="Email">
+                            <input type="text" name="firstname" class="form-control" placeholder="First Name" value= <?php echo $row['FirstName']; ?>>
+                            <input type="text" name="lastname" class="form-control" placeholder="Last Name" value= <?php echo $row['LastName']; ?>>
+                            <input type="email" name="email" class="form-control" placeholder="Email" value= <?php echo $row['Email']; ?>>
                             <input type="phone" name="phone" class="form-control" placeholder="Phone No.">
                             <small class="form-text form-mute">If you want to Restart your workout routine then click the Reset Button below.</small>
                             <button class="btn btn-danger">Reset</button>
@@ -61,6 +83,10 @@
         </div>
 
     </form>
+    <?php
+                                }
+                            }
+    ?>
 
 </body>
 
