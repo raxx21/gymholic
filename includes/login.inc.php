@@ -22,16 +22,16 @@ $lOG_PASS = $_POST['log_PASS'];
             $result = mysqli_stmt_get_result($stmt);
             if($row = mysqli_fetch_assoc($result)){
                 $pwdcheck = password_verify($lOG_PASS, $row['Password']);
-                if($pwdcheck == "1"){
+                if($pwdcheck == false){
                     header("Location: ../login.php?error=wrongpassword");
                     exit();
                 }
-                elseif($pwdcheck == "0"){
+                elseif($pwdcheck == true){
                     session_start();
                     $_SESSION['userId'] = $row['Id'];
                     $_SESSION['useremail'] = $row['Email'];
 
-                    header("Location: ../profile.php?login=success");
+                    header("Location: ../page1.php?login=success");
                     exit();
                 }
                 else{

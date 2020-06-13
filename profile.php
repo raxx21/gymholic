@@ -41,6 +41,7 @@ session_start();
                             <?php
                             require 'includes/condb.php';
                             $email =  $_SESSION['useremail'];
+                            $id = $_SESSION['userId'];
                             $sql = "SELECT * FROM test1 WHERE Email= ?";
                             $stmt= mysqli_stmt_init($con);
                             if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -56,25 +57,34 @@ session_start();
 
     <!-- Profile Form -->
 
-    <form action="">
+    <form action="includes/upload.inc.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 form-group main-frame-forget-3">
                     <div class="inner">
                         <div class=" col-lg-12 user-img text-center">
-                            <input type="file" id="photo-upload" name="photo">
-                            <label for="photo-upload"><img  src="img/face.png" alt=""></label>
+                        <?php
+                            if($row['status'] == 1){
+                                ?>
+                                <input type="file" id="photo-upload" name="file">
+                                <label for="photo-upload" ><img  src="img/face.png" alt=""></label>
+                            <?php }
+                                else{
+                                    echo '<input type="file" id="photo-upload" name="file">';
+                                    echo '<label for="photo-upload" ><img  src="upload/profile'.$id.".".'jpg" alt=""></label>';
+                                }
+                            ?>
                         </div>
                         <div class="col-lg-12">
+                            <small>Click on the image to update your profile photo.</small>
+                            <button type="submit" name="btn-upload" class="btn btn-dark">Upload</button>
                             <input type="text" name="firstname" class="form-control" placeholder="First Name" value= <?php echo $row['FirstName']; ?>>
                             <input type="text" name="lastname" class="form-control" placeholder="Last Name" value= <?php echo $row['LastName']; ?>>
                             <input type="email" name="email" class="form-control" placeholder="Email" value= <?php echo $row['Email']; ?>>
                             <input type="phone" name="phone" class="form-control" placeholder="Phone No.">
                             <small class="form-text form-mute">If you want to Restart your workout routine then click the Reset Button below.</small>
                             <button class="btn btn-danger">Reset</button>
-                            <small class="form-text form-mute">If you want to edit your Profile click the edit button below.</small>
-                            <button class="btn btn-primary">Edit</button>
                         </div>
                     </div>
                 </div>

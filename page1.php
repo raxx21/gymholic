@@ -41,7 +41,7 @@ session_start();
 
     <!-- form content -->
 
-    <form action="page2.html">
+    <form action="page2.php">
         <div class="container ">
             <div class="row ">
                 <div class="col-lg-3"></div>
