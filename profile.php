@@ -1,6 +1,7 @@
 <?php
 session_start();
-?>
+if (isset($_SESSION)) {
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,20 +41,18 @@ session_start();
 
                             <?php
                             require 'includes/condb.php';
-                            $email =  $_SESSION['useremail'];
-                            $id = $_SESSION['userId'];
-                            $sql = "SELECT * FROM test1 WHERE Email= ?";
-                            $stmt= mysqli_stmt_init($con);
-                            if(!mysqli_stmt_prepare($stmt,$sql)){
-                                echo 'mysqlerror';
-                            }
-                            else{
-                                mysqli_stmt_bind_param($stmt , "s", $email);
-                                mysqli_stmt_execute($stmt);
-                                $result = mysqli_stmt_get_result($stmt);
-                                if($row = mysqli_fetch_assoc($result)){
-
-                           ?>
+    $email =  $_SESSION['useremail'];
+    $id = $_SESSION['userId'];
+    $sql = "SELECT * FROM test1 WHERE Email= ?";
+    $stmt= mysqli_stmt_init($con);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo 'mysqlerror';
+    } else {
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        if ($row = mysqli_fetch_assoc($result)) {
+            ?>
 
     <!-- Profile Form -->
 
@@ -65,16 +64,15 @@ session_start();
                     <div class="inner">
                         <div class=" col-lg-12 user-img text-center">
                         <?php
-                            if($row['status'] == 1){
+                            if ($row['status'] == 1) {
                                 ?>
                                 <input type="file" id="photo-upload" name="file">
                                 <label for="photo-upload" ><img  src="img/face.png" alt=""></label>
-                            <?php }
-                                else{
-                                    echo '<input type="file" id="photo-upload" name="file">';
-                                    echo '<label for="photo-upload" ><img  src="upload/profile'.$id.".".'jpg" alt=""></label>';
-                                }
-                            ?>
+                            <?php
+                            } else {
+                                echo '<input type="file" id="photo-upload" name="file">';
+                                echo '<label for="photo-upload" ><img  src="upload/profile'.$id.".".'jpg" alt=""></label>';
+                            } ?>
                         </div>
                         <div class="col-lg-12">
                             <small>Click on the image to update your profile photo.</small>
@@ -94,10 +92,16 @@ session_start();
 
     </form>
     <?php
-                                }
-                            }
-    ?>
+        }
+    } ?>
 
 </body>
 
 </html>
+<?php
+}
+else{
+    header("Location: login.php");
+    exit();
+}
+?>

@@ -1,8 +1,10 @@
 <?php
 
 session_start();
-?>
+if(isset($_SESSION)){
 
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,22 +43,22 @@ session_start();
 
     <!-- form content -->
 
-    <form action="page2.php">
+    <form action="includes/page2.inc.php" method="POST">
         <div class="container ">
             <div class="row ">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 main-frame-forget-2">
                     <div class="form-group">
                         <label for="">Age</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="age" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Height</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="height" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Weight</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="weight" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="birthday">Birthday:</label>
@@ -66,14 +68,14 @@ session_start();
                         <div class="input-group-prepend ">
                             <label class="input-group-text" for="inputGroupSelect01">Gender</label>
                         </div>
-                        <select class="custom-select col-lg-3" id="inputGroupSelect01">
+                        <select name="gender" class="custom-select col-lg-3" id="inputGroupSelect01">
                   <option selected>Choose...</option>
                   <option value="1">Female</option>
                   <option value="2">Male</option>
                 </select>
                     </div>
                     <div>
-                        <button class="btn btn-primary">Continue --></button>
+                        <button type="submit" name="btn-submit" class="btn btn-primary">Continue --></button>
                     </div>
                 </div>
                 <div class="col-lg-3"></div>
@@ -84,3 +86,10 @@ session_start();
 </body>
 
 </html>
+<?php
+}
+else{
+    header("Location: page2.inc.php");
+}
+
+?>

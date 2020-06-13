@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_GET['info'])){
+    if($_GET['info'] == "success"){
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -203,3 +211,13 @@
 </body>
 
 </html>
+<?php
+}
+else{
+    header("Location: login.php");
+}
+}
+else{
+header("Location: login.php");
+}
+?>
