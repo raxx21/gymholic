@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if(isset($_SESSION)){
+if(isset($_SESSION['useremail'])){
 
     
 ?>
@@ -28,16 +28,16 @@ if(isset($_SESSION)){
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
+<!-- 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="home.htm">Home <span class="sr-only"></span></a>
+                    <a class="nav-link" href="home.php">Home <span class="sr-only"></span></a>
                 </li>
 
             </ul>
 
-        </div>
+        </div> -->
     </nav>
 
 
@@ -70,8 +70,8 @@ if(isset($_SESSION)){
                         </div>
                         <select name="gender" class="custom-select col-lg-3" id="inputGroupSelect01">
                   <option selected>Choose...</option>
-                  <option value="1">Female</option>
-                  <option value="2">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
                 </select>
                     </div>
                     <div>
@@ -89,7 +89,7 @@ if(isset($_SESSION)){
 <?php
 }
 else{
-    header("Location: page2.inc.php");
+    header("Location: login.php?direct=notallowed");
 }
 
 ?>

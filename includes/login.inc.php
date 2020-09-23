@@ -30,9 +30,17 @@ $lOG_PASS = $_POST['log_PASS'];
                     session_start();
                     $_SESSION['userId'] = $row['Id'];
                     $_SESSION['useremail'] = $row['Email'];
-
-                    header("Location: ../page1.php?login=success");
-                    exit();
+                    $sql = "SELECT * FROM userinfo WHERE Email = '$log_ID';";
+                    $result = mysqli_query($con,$sql);
+                    $row = mysqli_fetch_assoc($result);
+                    if($row['Age'] == 0){
+                        header("Location: ../page1.php?login=success");
+                        exit();
+                    }
+                    else{
+                        header("Location: ../page2.php");
+                    }
+                   
                 }
                 else{
                     header("Location: ../login.php?error=wrongpassword");
@@ -49,5 +57,5 @@ $lOG_PASS = $_POST['log_PASS'];
 
 }
 else{
-    header("Location: ../login.php");
+    header("Location: ../login.php?direct=notallowed");
 }
