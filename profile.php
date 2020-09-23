@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION)) {
+if (isset($_SESSION['useremail'])) {
     ?>
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ if (isset($_SESSION)) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="page2.html">Back <span class="sr-only"></span></a>
+                    <a class="nav-link" href="page2.php">Back <span class="sr-only"></span></a>
                 </li>
 
             </ul>
@@ -101,7 +101,7 @@ if (isset($_SESSION)) {
 <?php
 }
 else{
-    header("Location: login.php");
+    header("Location: login.php?direct=notallowed");
     exit();
 }
 ?>

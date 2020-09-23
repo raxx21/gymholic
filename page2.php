@@ -1,8 +1,6 @@
 <?php
 session_start();
-if(isset($_GET['info'])){
-    if($_GET['info'] == "success"){
-
+if(isset($_SESSION['useremail'])){
 
 ?>
 
@@ -111,7 +109,7 @@ if(isset($_GET['info'])){
 
     <div class="container-fluid row">
         <div class="col-lg-6 text-center">
-            <a href="full-body.html"><img src="img/full-body.jpg" alt="full-body" class="img-thumbnail"></a>
+            <a href="full-body.php"><img src="img/full-body.jpg" alt="full-body" class="img-thumbnail"></a>
             <h3>Full Body Workout</h3>
         </div>
         <div class="col-lg-6 text-center">
@@ -214,10 +212,6 @@ if(isset($_GET['info'])){
 <?php
 }
 else{
-    header("Location: login.php");
-}
-}
-else{
-header("Location: login.php");
+header("Location: login.php?direct=notallowed");
 }
 ?>

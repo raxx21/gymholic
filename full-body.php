@@ -1,6 +1,7 @@
 <?php
 session_start();
-?>
+if (isset($_SESSION['useremail'])) {
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +29,7 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="page2.html">Back <span class="sr-only"></span></a>
+                    <a class="nav-link" href="page2.php">Back <span class="sr-only"></span></a>
                 </li>
             </ul>
 
@@ -55,6 +56,7 @@ session_start();
         <a data-toggle="collapse" data-target="#icon-five" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-five.jpg" alt="" class="img-thumbnail"> </a>-->
         <a data-toggle="collapse" data-target="#icon-six" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-six.jpg" alt="" class="img-thumbnail"> </a>-->
         <a data-toggle="collapse" data-target="#icon-seven" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-seven.jpg" alt="" class="img-thumbnail"> </a>-->
+
         <img src="img/trophy.jpg" alt="" class="img-thumbnail">
 
         <!-- week 1 day 1 -->
@@ -68,7 +70,7 @@ session_start();
                     <button onclick="seconds(this.id,20,0)" id="btn1" class="btn btn-primary">Start</button>
                 </div>
                 <div class="col-lg-4">
-                    <img src="gif/e-incline-push-up.gif" alt="">
+                    <img src="gif/e-decline-push-up.gif" alt="">
                     <h2 class="text-center">Incline Push Ups</h2>
                     <h4>(16 x2)</h4>
                     <button id="btn2" class="btn btn-primary" onclick="time(this.id,16)" disabled="disabled">Start</button>
@@ -384,7 +386,7 @@ session_start();
         </div>
 
         <!-- week 1 day 7 -->
-        <div class="collapse " id="icon-seven ">
+        <div class="collapse" id="icon-seven">
             <h1 class="text-center ">Week 1 Day 7</h1>
             <div class="row ">
                 <div class="col-lg-4 ">
@@ -435,17 +437,17 @@ session_start();
     <!-- full body week 2 -->
     <div class="text-center ">
         <h1>Week 2</h1>
-        <a data-toggle="collapse " data-target="#icon-2-1 " aria-expanded="false " aria-controls="icon-2-1 "><img src="img/icon-one.jpg " alt=" " class="img-thumbnail "> </a>-->
-        <a data-toggle="collapse " data-target="#icon-2-2 " aria-expanded="false " aria-controls="icon-2-2 "><img src="img/icon-two.jpg " alt=" " class="img-thumbnail "> </a>-->
-        <a data-toggle="collapse " data-target="#icon-2-3 " aria-expanded="false " aria-controls="icon-2-3 "><img src="img/icon-three.jpg " alt=" " class="img-thumbnail "> </a>-->
-        <a data-toggle="collapse " data-target="#icon-2-4 " aria-expanded="false " aria-controls="icon-2-4 "><img src="img/icon-four.jpg " alt=" " class="img-thumbnail "> </a>-->
-        <a data-toggle="collapse " data-target="#icon-2-5 " aria-expanded="false " aria-controls="icon-2-5 "><img src="img/icon-five.jpg " alt=" " class="img-thumbnail "> </a>-->
-        <a data-toggle="collapse " data-target="#icon-2-6 " aria-expanded="false " aria-controls="icon-2-6 "><img src="img/icon-six.jpg " alt=" " class="img-thumbnail "> </a>-->
-        <a data-toggle="collapse " data-target="#icon-2-7 " aria-expanded="false " aria-controls="icon-2-7 "><img src="img/icon-seven.jpg " alt=" " class="img-thumbnail "> </a>-->
-        <img src="img/trophy.jpg " alt=" " class="img-thumbnail ">
+        <a data-toggle="collapse" data-target="#icon-2-1" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-one.jpg" alt="" class="img-thumbnail"> </a>-->
+        <a data-toggle="collapse" data-target="#icon-2-2" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-two.jpg" alt="" class="img-thumbnail"> </a>-->
+        <a data-toggle="collapse" data-target="#icon-2-3" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-three.jpg" alt="" class="img-thumbnail"> </a>-->
+        <a data-toggle="collapse" data-target="#icon-2-4" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-four.jpg" alt="" class="img-thumbnail"> </a>-->
+        <a data-toggle="collapse" data-target="#icon-2-5" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-five.jpg" alt="" class="img-thumbnail"> </a>-->
+        <a data-toggle="collapse" data-target="#icon-2-6" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-six.jpg" alt="" class="img-thumbnail"> </a>-->
+        <a data-toggle="collapse" data-target="#icon-2-7" aria-expanded="false" aria-controls="icon-one"><img src="img/icon-seven.jpg" alt="" class="img-thumbnail"> </a>-->
+ `  <img src="img/trophy.jpg " alt=" " class="img-thumbnail ">
 
         <!-- week 2 day 1 -->
-        <div class="collapse " id="icon-2-1 ">
+        <div class="collapse " id="icon-2-one ">
             <h1 class="text-center ">Week 2 Day 1</h1>
             <div class="row ">
                 <div class="col-lg-4 ">
@@ -793,7 +795,7 @@ session_start();
         </div>
 
         <!-- week 2 day 7 -->
-        <div class="collapse " id="icon-2-7 ">
+        <div class="collapse " id="icon-2-7">
             <h1 class="text-center ">Week 2 Day 7</h1>
             <div class="row ">
                 <div class="col-lg-4 ">
@@ -1575,3 +1577,10 @@ session_start();
 </body>
 
 </html>
+<?php
+}
+else{
+    header("Location: login.php?direct=notallowed");        
+}
+
+?>
